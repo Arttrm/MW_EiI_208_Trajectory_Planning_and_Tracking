@@ -67,7 +67,7 @@ A further extension of this optimization problem is to propose an online impleme
 <table>
 <tbody>
 <td><figure>
-    <img src="https://github.com/Arttrm/MW_EiI_208_Trajectory_Planning_and_Tracking/blob/main/Figures/Gif_Online_Optimal_Path_Tracking.gif"  width=530 />
+    <img src="https://github.com/Arttrm/MW_EiI_208_Trajectory_Planning_and_Tracking/blob/main/Figures/Gif_Online_Optimal_Path_Tracking.gif"  width=540 />
     <figcaption>Fig. 5: Online optimized path tracking result.</figcaption>
 </figure></td>
 <td><figure>
