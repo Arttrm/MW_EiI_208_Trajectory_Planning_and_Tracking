@@ -1,7 +1,7 @@
 # RC Car Modelling and Trajectory Tracking Control
 
-Here is my attempt to MathWaorks' Excellence in Innovation Project 208.
-This work has been done as part of my MSc in Sydtems, Control and Signal processing at the University of Southampton
+Here is my attempt to MathWorks' Excellence in Innovation Project 208.
+This work has been done as part of my MSc in Systems, Control and Signal processing at the University of Southampton
 
 The best race driver is the fastest on track. However, "to finish first you must first finish" (Claude Rouelle). These objectives remain unchanged when dealing with remote control car racing. The objective of a race driver model is therefore to be as fast as possible on track while staying between the track limits.
 
