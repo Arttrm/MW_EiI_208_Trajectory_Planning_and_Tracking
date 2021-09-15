@@ -78,3 +78,14 @@ A further extension of this optimization problem is to propose an online impleme
 </table>
 
 More details are given in my <a href="https://github.com/Arttrm/MW_EiI_208_Trajectory_Planning_and_Tracking/blob/main/MSc_Project_Dissertation.pdf">MSc project dissertation</a>.
+
+A possible extension of online trajectory optimization is to add an obstacle avoidance strategy. The Fig. 6 shows the online trajectory optimization with 2 fixed obstacles and a moving one.
+
+<table>
+<tbody>
+<td><figure>
+    <img src="https://github.com/Arttrm/MW_EiI_208_Trajectory_Planning_and_Tracking/blob/main/Figures/Gif_Online_Optimal_Path_Tracking_2.gif"  width=540 />
+    <figcaption>Fig. 6: Online optimized path tracking with obstacle avoidance.</figcaption>
+</figure></td>
+</tbody>
+</table>
