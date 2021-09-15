@@ -8,7 +8,7 @@
 % RC Car Modelling and Trajectory Tracking Control
 % ======================================================================= %
 % GIF_Creator
-% Version : 1.0
+% Version : 2.0
 % Date : 01/09/2021
 % ======================================================================= %
 
@@ -19,9 +19,13 @@ Time1=out.CarPosition.Time;
 Data3=out.TrajInfo.Data;
 Time3=out.TrajInfo.Time;
 
+Data4=out.ObstacleInfo.Data;
+Time4=out.ObstacleInfo.Time;
+
+
 KMax=0.2;
 
-filename = 'Simulation_Animation.gif';
+filename = 'Simulation_Animation_2.gif';
 
 KList2=[];
 
@@ -38,7 +42,7 @@ for i=1:20:length(Data3)
     
     KList2=[KList2,maxk(K,4)'];
  
-    h=figure(7)
+    h=figure(7);
     % plot(X,Y,'r')
     cmap = colormap(jet); % colormap(flipud(jet));
     % scatter(X(2:end-1),Y(2:end-1),1,K,'.');
@@ -52,9 +56,29 @@ for i=1:20:length(Data3)
     % Car
     hg1 = hgtransform;
     rectangle('Position',[-1,-0.5,2,1],'Curvature', [0.5 0.5],'parent',hg1,'FaceColor','k');
-    a=Data1(find(Time1==Time3(i)),3)
+    a=Data1(find(Time1==Time3(i)),3);
     hg1.Matrix = makehgtform('translate',[X(1),Y(1),0],'zrotate',a);
-        
+    
+    % Obstacle
+    if 1
+        b=max(i,11);
+        Obstacle=Data4(:,:,b);
+        for j=1:2
+            plot(Track_Param.xRightSide(Obstacle(1,j))+Obstacle(2,j)*(Track_Param.xLeftSide(Obstacle(1,j))-Track_Param.xRightSide(Obstacle(1,j))),...
+                 Track_Param.yRightSide(Obstacle(1,j))+Obstacle(2,j)*(Track_Param.yLeftSide(Obstacle(1,j))-Track_Param.yRightSide(Obstacle(1,j))),...
+                 'ro','MarkerFaceColor','r')
+        end
+
+        hg2 = hgtransform;
+        rectangle('Position',[-1,-0.5,2,1],'Curvature', [0.5 0.5],'parent',hg2,'FaceColor','r');
+        try 
+            d=angle(Track_Param.xTrack(Obstacle(1,3)+1)-Track_Param.xTrack(Obstacle(1,3)-1)+sqrt(-1)*(Track_Param.yTrack(Obstacle(1,3)+1)-Track_Param.yTrack(Obstacle(1,3)-1)));
+        end
+        hg2.Matrix = makehgtform('translate',[Track_Param.xRightSide(Obstacle(1,3))+Obstacle(2,3)*(Track_Param.xLeftSide(Obstacle(1,3))-Track_Param.xRightSide(Obstacle(1,3))),...
+                                              Track_Param.yRightSide(Obstacle(1,3))+Obstacle(2,3)*(Track_Param.yLeftSide(Obstacle(1,3))-Track_Param.yRightSide(Obstacle(1,3))),...
+                                              0],'zrotate',d);
+    end
+    
     % Track
     plot(Track_Param.xTrack,Track_Param.yTrack,'k')
     plot(Track_Param.xRightSide',Track_Param.yRightSide','k--')
