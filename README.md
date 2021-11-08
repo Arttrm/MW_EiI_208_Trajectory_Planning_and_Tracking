@@ -89,3 +89,5 @@ A possible extension of online trajectory optimization is to add an obstacle avo
 </figure></td>
 </tbody>
 </table>
+
+A video description of this project can be found on the following link : https://youtu.be/rwvJJa25xms
